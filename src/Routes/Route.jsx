@@ -4,11 +4,16 @@ import TermsOfServices from "../Pages/TermsOfServices";
 import Privacy from "../Pages/Privacy";
 import DeveloperResources from "../Pages/DeveloperResources";
 import CookiesPolicy from "../Pages/CookiesPolicy";
+import ErrorPage from "../Pages/ErrorPage";
+import AuthLayout from "../Layouts/AuthLayout/AuthLayout";
+import Login from "../Pages/Login";
+import Register from "../Pages/Register";
 
  export const router = createBrowserRouter([
     {
         path : "/",
         Component : MainLayout,
+        
         children:[
             {
                 index:true,
@@ -39,5 +44,25 @@ import CookiesPolicy from "../Pages/CookiesPolicy";
     {
         path :"/cookies-policy",
         Component: CookiesPolicy
+    },
+    {
+        path:"/auth",
+        Component : AuthLayout,
+        children : [
+            
+            {
+               path :"/auth/login",
+               Component : Login
+            },
+            {
+                path :"/auth/registration",
+                Component : Register
+            }
+        ]
+    },
+    
+    {
+        path :"*",
+        Component : ErrorPage
     }
 ])

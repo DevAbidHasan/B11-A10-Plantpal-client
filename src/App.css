@@ -1,6 +1,9 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-.active{
-    color: red;
+.no-scroll{
+    overflow: hidden;
+}
+.active {
+    color: rgb(10, 210, 10);
 }

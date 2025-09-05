@@ -1,40 +1,84 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router';
-import { PiPlant } from "react-icons/pi";
+import { HiMenu } from "react-icons/hi";
+import { IoCloseSharp } from "react-icons/io5";
 
 const Navbar = () => {
-    return (
-        <div className="navbar bg-base-100 shadow-sm">
-  <div className="navbar-start">
-    <div className="dropdown">
-      <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+
+  const [isOpen, setIsOpen]=useState(false);
+  const toggleMenu=()=>{
+    setIsOpen(!isOpen);
+    
+  }
+
+  useEffect(()=>{
+    if(isOpen) {
+      document.body.classList.add("no-scroll");
+    }
+    else {
+      document.body.classList.remove("no-scroll");
+    }
+  },[isOpen])
+
+  useEffect(()=>{
+    const handleResize=()=>{
+        if(window.innerWidth>=768){
+          setIsOpen(false);
+        }
+    }
+    window.addEventListener('resize', handleResize);
+
+    return () =>{
+      window.removeEventListener('resize', handleResize);
+    }
+  },[])
+
+  return (
+   <div className='bg-gray-900 poppins py-2'>
+     <nav className=' w-11/12 mx-auto text-white'>
+      <div className='flex items-center justify-between'>
+        <div className='z-20 text-2xl font-bold'>
+         <Link>🌿Plant<span className='text-green-500'>pal</span></Link>
+        </div>
+        {
+          !isOpen && (
+            <div onClick={toggleMenu} className='cursor-pointer hover:text-green-500 md:hidden'>
+              <HiMenu size={30}/>
+            </div>
+          )
+        }
+        {
+          isOpen && (
+            <div onClick={toggleMenu} className='cursor-pointer hover:text-red-500 z-20 md:hidden '>
+              <IoCloseSharp size={30}/>
+            </div>
+          )
+        }
+       {
+        isOpen ? <div className='bg-gray-700 overflow-y-hidden fixed z-10 top-0 left-0 w-screen flex flex-col items-center justify-center gap-5 duration-300 ease-in min-h-[380px] max-h-screen'>
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/about">All Plants</NavLink>
+          <NavLink>Add Plant</NavLink>
+          <NavLink>My Plants</NavLink>
+          <Link className="btn btn-primary">Login</Link>
+          <Link className="btn btn-success">Register</Link>
+        </div> : <div className='bg-gray-800 overflow-y-hidden fixed z-10 top-0 left-[-150%] w-screen flex flex-col items-center justify-center gap-5 duration-300 ease-in min-h-[380px] max-h-screen'></div>
+       }
+        <div className='md:flex text-gray-300  md:gap-5 lg:gap-11 items-center justify-center hidden '>
+          <NavLink to="/" className="hover:text-white ">Home</NavLink>
+          <NavLink  className="hover:text-white " to="/about">All Plants</NavLink>
+          <NavLink to="/blogs" className="hover:text-white ">Add Plant</NavLink>
+          <NavLink to="/dkd" className="hover:text-white ">My Plants</NavLink>
+          
+        </div>
+        <div className='md:flex hidden items-center gap-5 justify-between'>
+          <Link className="btn btn-primary">Login</Link>
+          <Link className="btn btn-success">Register</Link>
+        </div>
       </div>
-      <ul
-        tabIndex={0}
-        className="menu menu-lg dropdown-content bg-base-100 shadow">
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/blogs">All Plants</NavLink>
-        <NavLink>Add Plants</NavLink>
-        <NavLink>My Plants</NavLink>
-      </ul>
-    </div>
-    <Link to="/" className="text-xl flex items-center gap-2"><PiPlant className='text-green-600' size={30}/><span className='text-blue-500 font-bold'>PlantPal</span></Link>
-  </div>
-  <div className="navbar-center hidden lg:flex">
-    <ul className="menu text-blue-500 gap-12 menu-horizontal px-1">
-      <NavLink to="/">Home</NavLink>
-        <NavLink to="/blogs">All Plants</NavLink>
-        <NavLink to="/about">Add Plants</NavLink>
-        <NavLink to="/contact">My Plants</NavLink>
-    </ul>
-  </div>
-  <div className="navbar-end">
-    <a className="btn">Login</a>
-    <a className="btn">Register</a>
-  </div>
-</div>
-    );
+    </nav>
+   </div>
+  );
 };
 
 export default Navbar;
