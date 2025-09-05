@@ -2,6 +2,8 @@ import { createBrowserRouter } from "react-router";
 import MainLayout from "../Layouts/MainLayout/MainLayout";
 import TermsOfServices from "../Pages/TermsOfServices";
 import Privacy from "../Pages/Privacy";
+import DeveloperResources from "../Pages/DeveloperResources";
+import CookiesPolicy from "../Pages/CookiesPolicy";
 
  export const router = createBrowserRouter([
     {
@@ -29,5 +31,13 @@ import Privacy from "../Pages/Privacy";
     {
         path:"/privacy",
         Component : Privacy
+    },
+    {
+        path: "/developer-resources",
+        Component : DeveloperResources
+    },
+    {
+        path :"/cookies-policy",
+        Component: CookiesPolicy
     }
 ])

@@ -6,41 +6,38 @@ const Privacy = () => {
     return (
         <div className='my-10 mb-25 w-11/12 mx-auto'>
             <h2 className='text-center mb-5 md:text-3xl sm:text-2xl text-xl poppins font-black'>Privacy</h2> <hr/>
-            <p className='text-center mt-5 inter'>At <span className='font-bold  text-green-600'>PlantPal </span>! we respect your privacy and are committed to protecting your personal data.</p>
+            <p className='text-center mt-5 inter'>At <span className='font-bold  text-green-600'>PlantPal 🌿 </span>! we respect your privacy and are committed to protecting your personal data.</p>
             <ol className='my-12 space-y-3 list-decimal list-inside'>
-                <li ><span className='font-bold poppins'>Use of Service :</span>
+                <li ><span className='font-bold poppins'>Information We Collect :</span>
                 <ul className='list-disc mt-2 ml-0 md:ml-10 list-inside'>
-                    <li className='inter'>PlantPal is designed to help users track plant care activities such as watering, fertilizing, and reminders.</li>
-                    <li className='inter'>You agree not to misuse the platform for unlawful or harmful purposes.</li>
+                    <li className='inter'>Account Info - Name, email, and password.</li>
+                    <li className='inter'>Plant Data - Plant names, care logs, reminders.</li>
+                    <li className='inter'>Usage Data - Analytics to improve features.</li>
                 </ul>
                 </li>
-                 <li ><span className='font-bold poppins'>Accounts :</span>
+                 <li ><span className='font-bold poppins'>How We Use Your Information :</span>
                 <ul className='list-disc mt-2 ml-0 md:ml-10 list-inside'>
-                    <li className='inter'>You may need to create an account to use certain features.</li>
-                    <li className='inter'>You are responsible for keeping your login credentials secure.</li>
+                    <li className='inter'>To provide plant care tracking services.</li>
+                    <li className='inter'>To send reminders and updates.</li>
+                     <li className='inter'>To improve user experience and fix issues.</li>
                 </ul>
                 </li>
-                <li ><span className='font-bold poppins'>Content :</span>
+                <li ><span className='font-bold poppins'>Data Protection :</span>
                 <ul className='list-disc mt-2 ml-0 md:ml-10 list-inside'>
-                    <li className='inter'>You retain ownership of any data you input (e.g., plant details, notes).</li>
-                    <li className='inter'>By submitting content, you give PlantPal permission to store and process it to provide services.</li>
+                    <li className='inter'>We use secure technologies to store and protect your data.</li>
+                    <li className='inter'>We do not sell or rent your data to third parties.</li>
                 </ul>
                 </li>
-                <li ><span className='font-bold poppins'>Limitations :</span>
+                <li ><span className='font-bold poppins'>Third-Party Services :</span>
                 <ul className='list-disc mt-2 ml-0 md:ml-10 list-inside'>
-                    <li className='inter'>PlantPal is provided “as is.” We do not guarantee that reminders, tips, or recommendations will always be accurate.</li>
-                    <li className='inter'>We are not responsible for damage to your plants due to reliance on the app.</li>
+                    <li className='inter'>We may use analytics or hosting providers (e.g., Google Firebase, AWS).</li>
+                    <li className='inter'>These services have their own privacy policies.</li>
                 </ul>
                 </li>
-                <li ><span className='font-bold poppins'>Termination :</span>
+                <li ><span className='font-bold poppins'>Your Rights :</span>
                 <ul className='list-disc mt-2 ml-0 md:ml-10 list-inside'>
-                    <li className='inter'>We reserve the right to suspend or terminate accounts that violate these terms.</li>
+                    <li className='inter'>You can request access, correction, or deletion of your data anytime by contacting us.</li>
                     
-                </ul>
-                </li>
-                <li ><span className='font-bold poppins'>Changes :</span>
-                <ul className='list-disc mt-2 ml-0 md:ml-10 list-inside'>
-                    <li className='inter'>We may update these terms at any time. Continued use means you accept the changes.</li>
                 </ul>
                 </li>
             </ol>

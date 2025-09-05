@@ -30,8 +30,8 @@ const Footer = () => {
                 <div className='flex items-center gap-1.5 flex-col'>
                     <Link className='hover:underline hover:text-gray-400' to="/terms-of-services"><small>Terms of Services</small></Link>
                     <Link className='hover:underline hover:text-gray-400' to="/privacy"><small>Privacy Policy</small></Link>
-                    <Link className='hover:underline hover:text-gray-400' to=""><small>Developer Resources</small></Link>
-                    <Link className='hover:underline hover:text-gray-400' to=""><small>Cookies Policy</small></Link>
+                    <Link className='hover:underline hover:text-gray-400' to="/developer-resources"><small>Developer Resources</small></Link>
+                    <Link className='hover:underline hover:text-gray-400' to="/cookies-policy"><small>Cookies Policy</small></Link>
                 </div>
                 
                 <div>
