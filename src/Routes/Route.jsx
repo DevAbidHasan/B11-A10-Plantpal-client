@@ -1,5 +1,7 @@
 import { createBrowserRouter } from "react-router";
 import MainLayout from "../Layouts/MainLayout/MainLayout";
+import TermsOfServices from "../Pages/TermsOfServices";
+import Privacy from "../Pages/Privacy";
 
  export const router = createBrowserRouter([
     {
@@ -17,7 +19,15 @@ import MainLayout from "../Layouts/MainLayout/MainLayout";
             {
                 path :"/about",
                 element :<h2>this is about</h2>
-            }
+            },
         ]
+    },
+    {
+        path :"/terms-of-services",
+        Component : TermsOfServices
+    },
+    {
+        path:"/privacy",
+        Component : Privacy
     }
 ])
