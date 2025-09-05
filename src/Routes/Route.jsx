@@ -9,6 +9,7 @@ import AuthLayout from "../Layouts/AuthLayout/AuthLayout";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import Home from "../Layouts/MainLayout/Home";
+import AddPlant from "../Pages/AddPlant";
 
  export const router = createBrowserRouter([
     {
@@ -21,8 +22,8 @@ import Home from "../Layouts/MainLayout/Home";
                 Component: Home
             },
             {
-                path :"/blogs",
-                element :<h2>this is blogs</h2>
+                path :"/add-plant",
+                Component: AddPlant
             },
             {
                 path :"/about",

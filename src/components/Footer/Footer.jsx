@@ -8,13 +8,16 @@ import { PiPlant } from "react-icons/pi";
 import { IoCall } from "react-icons/io5";
 import { MdOutlineMarkEmailUnread } from "react-icons/md";
 
+
 const Footer = () => {
     const handleClick = () => {
     Navigate("/");           
     window.scrollTo(0, 0);    // scroll to top
   };
     return (
-        <div className='mt-40 pt-20 pb-5 text-white bg-gray-950'>
+       <div>
+        
+         <div className='mt-40 pt-20 pb-5  text-white bg-gray-950'>
             <div className='w-11/12 pb-10 border-b border-dashed border-gray-500 flex md:flex-row flex-col gap-10 items-center justify-between px-5 mx-auto'>
                 <div className='flex flex-col gap-2 items-center md:items-start'>
                     <Link onClick={handleClick} to="/">
@@ -54,6 +57,7 @@ const Footer = () => {
                
             </div>
         </div>
+       </div>
     );
 };
 

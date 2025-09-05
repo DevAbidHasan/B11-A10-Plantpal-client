@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { NavLink } from 'react-router';
 import errorImage from '../../public/error.jpeg'
 import { toast, ToastContainer } from 'react-toastify';
+import img from "../../public/error.json";
+import Lottie from 'lottie-react';
 
 const ErrorPage = () => {
     useEffect(()=>{
@@ -9,7 +11,10 @@ const ErrorPage = () => {
     },[])
     return (
         <div className='flex inter items-center mt-10 md:mt-20 flex-col justify-center'>
-            <img className='max-w-[300px]' src={errorImage} alt="" />
+            {/* <img className='max-w-[300px]' src={errorImage} alt="" /> */}
+            <div>
+                <Lottie className='w-[320px] mb-4' animationData={img}></Lottie>
+            </div>
             <ToastContainer/>
             <h2 className='text-center text-red-600'>404 Not Found 😵 ❌ ❌</h2>
             <div className="flex mt-10 justify-center items-center ">
