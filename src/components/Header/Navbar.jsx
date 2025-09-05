@@ -60,8 +60,8 @@ const Navbar = () => {
           <NavLink to="/about">All Plants</NavLink>
           <NavLink>Add Plant</NavLink>
           <NavLink>My Plants</NavLink>
-          <Link className="btn btn-primary">Login</Link>
-          <Link className="btn btn-success">Register</Link>
+          <Link to="/auth/login" className="btn btn-primary">Login</Link>
+          <Link to="/auth/registration" className="btn btn-success">Register</Link>
         </div> : <div className='bg-gray-800 overflow-y-hidden fixed z-10 top-0 left-[-150%] w-screen flex flex-col items-center justify-center gap-5 duration-300 ease-in min-h-[380px] max-h-screen'></div>
        }
         <div className='md:flex text-gray-300  md:gap-5 lg:gap-11 items-center justify-center hidden '>
@@ -72,8 +72,8 @@ const Navbar = () => {
           
         </div>
         <div className='md:flex hidden items-center gap-5 justify-between'>
-          <Link className="btn btn-primary">Login</Link>
-          <Link className="btn btn-success">Register</Link>
+          <Link to="/auth/login" className="btn btn-primary">Login</Link>
+          <Link to="/auth/registration" className="btn btn-success">Register</Link>
         </div>
       </div>
     </nav>
