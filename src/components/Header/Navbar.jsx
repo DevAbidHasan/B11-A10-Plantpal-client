@@ -38,7 +38,7 @@ const Navbar = () => {
      <nav className=' w-11/12 mx-auto text-white'>
       <div className='flex items-center justify-between'>
         <div className='z-20 text-2xl font-bold'>
-         <Link>🌿Plant<span className='text-green-500'>pal</span></Link>
+         <Link to="/">🌿Plant<span className='text-green-500'>pal</span></Link>
         </div>
         {
           !isOpen && (

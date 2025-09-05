@@ -8,6 +8,7 @@ import ErrorPage from "../Pages/ErrorPage";
 import AuthLayout from "../Layouts/AuthLayout/AuthLayout";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
+import Home from "../Layouts/MainLayout/Home";
 
  export const router = createBrowserRouter([
     {
@@ -17,7 +18,7 @@ import Register from "../Pages/Register";
         children:[
             {
                 index:true,
-                element :<h2>this is root page</h2>
+                Component: Home
             },
             {
                 path :"/blogs",
@@ -49,11 +50,11 @@ import Register from "../Pages/Register";
         path:"/auth",
         Component : AuthLayout,
         children : [
-            
             {
-               path :"/auth/login",
-               Component : Login
+                path :"/auth/login",
+                Component : Login
             },
+            
             {
                 path :"/auth/registration",
                 Component : Register
