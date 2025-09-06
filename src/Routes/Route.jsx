@@ -11,6 +11,7 @@ import Register from "../Pages/Register";
 import Home from "../Layouts/MainLayout/Home";
 import AddPlant from "../Pages/AddPlant";
 import AllPlants from "../Pages/AllPlants";
+import PlantDetails from "../Pages/PlantDetails";
 
  export const router = createBrowserRouter([
     {
@@ -20,6 +21,7 @@ import AllPlants from "../Pages/AllPlants";
         children:[
             {
                 index:true,
+                loader : async ()=>fetch ("http://localhost:3000/plants"),
                 Component: Home
             },
             {
@@ -31,6 +33,11 @@ import AllPlants from "../Pages/AllPlants";
                 loader : async ()=>fetch ("http://localhost:3000/plants"),
                 Component : AllPlants
             },
+            {
+                path:"/plants/:id",
+                loader : async ({params})=> fetch(`http://localhost:3000/plants/${params.id}`),
+                Component:PlantDetails
+            }
         ]
     },
     {

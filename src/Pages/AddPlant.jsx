@@ -72,9 +72,9 @@ const AddPlant = () => {
                     <label className="label">Care Level</label>
                      <select name='care_level' className='border pl-3 border-gray-300 bg-white py-2.5 rounded-sm'>
                         <option defaultChecked>Select care level</option>
-                        <option value="easy">Easy</option>
-                        <option value="moderate">Moderate</option>
-                        <option value="difficult">Difficult</option>
+                        <option value="Easy">Easy</option>
+                        <option value="Moderate">Moderate</option>
+                        <option value="Difficult">Difficult</option>
                     </select>
                     </fieldset>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
