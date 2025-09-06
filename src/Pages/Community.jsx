@@ -8,17 +8,54 @@ import img3 from '../../public/image-3.jpg'
 import img4 from '../../public/image-4.jpg'
 import img5 from '../../public/image-5.jpg'
 import img6 from '../../public/image-6.jpg'
+import CountUp from "react-countup";
+import { PiUserCheckFill } from "react-icons/pi";
+import { PiPottedPlantFill } from "react-icons/pi";
+import { IoWater } from "react-icons/io5";
+
 
 
 
 
 const Community = () => {
     return (
-        <div className='w-11/12 mx-auto'>
-            <Marquee pauseOnHover={true} speed={100} className='text-2xl md:text-3xl lg:text-4xl mb-6 font-black text-amber-600 text-center poppins'>Community Stories & Inspiration</Marquee>
-            <p className='text-center  inter '>A space where plant lovers can share their plant journeys, photos, and success stories to inspire others.</p>
+        <div className='mx-auto'>
+            <Marquee pauseOnHover={true} speed={100} className='text-2xl py-2 md:text-3xl lg:text-4xl mb-6 font-black text-amber-600 text-center poppins'>Community Stories & Inspiration</Marquee>
+            
+            <div className="w-11/12 mx-auto">
+                <p className='text-center  text-gray-500 inter '>A space where plant lovers can share their plant journeys, photos, and success stories to inspire others.</p>
 
-
+                {/* user stories cards */}
+                <div className="md:grid-cols-4 my-16 grid grid-cols-1 sm:grid-cols-2 gap-10">
+                    <div className="flex text-center space-y-2 items-center border-gray-200 rounded-xl shadow-md hover:shadow-xl hover:shadow-purple-100 justify-center flex-col border p-5">
+                       <PiUserCheckFill className="text-purple-700" size={80}/>
+                       <h2 className="lg:text-3xl text-xl sm:text-2xl poppins font-black text-center text-blue-600">
+                             <CountUp enableScrollSpy={true} scrollSpyOnce={true}  end={3500} duration={5}/>+
+                       </h2>
+                       <p className="inter text-gray-500">Active users caring for their plants daily.</p>
+                    </div>
+                    <div className="flex text-center space-y-2 items-center border-gray-200 rounded-xl shadow-md hover:shadow-xl hover:shadow-green-100 justify-center flex-col border p-5">
+                       <PiPottedPlantFill className="text-green-600" size={80}/>
+                       <h2 className="lg:text-3xl text-xl sm:text-2xl poppins font-black text-center text-blue-600">
+                             <CountUp enableScrollSpy={true} scrollSpyOnce={true}  end={300} duration={5}/>+
+                       </h2>
+                       <p className="inter text-gray-500">Plants tracked across our community.</p>
+                    </div>
+                    <div className="flex text-center space-y-2 items-center border-gray-200 rounded-xl shadow-md hover:shadow-xl hover:shadow-blue-100 justify-center flex-col border p-5">
+                       <IoWater className="text-blue-600" size={80}/>
+                       <h2 className="lg:text-3xl text-xl sm:text-2xl poppins font-black text-center text-blue-600">
+                             <CountUp enableScrollSpy={true} scrollSpyOnce={true}  end={15000} duration={5}/>+
+                       </h2>
+                       <p className="inter  text-gray-500">Waterings, fertilizations, and repottings logged.</p>
+                    </div>
+                    <div className="flex text-center space-y-2 items-center border-gray-200 rounded-xl shadow-md hover:shadow-xl hover:shadow-amber-100 justify-center flex-col border p-5">
+                       <RiUserCommunityLine className="text-amber-600" size={80}/>
+                       <h2 className="lg:text-3xl text-xl sm:text-2xl poppins font-black text-center text-blue-600">
+                             <CountUp enableScrollSpy={true} scrollSpyOnce={true}  end={700} duration={5}/>+
+                       </h2>
+                       <p className="inter  text-gray-500">Shared journeys, tips, and plant photos.</p>
+                    </div>
+                </div>
             <h2 className="text-center md:text-2xl text-blue-600 text-xl poppins font-black my-12">Users Top 6 Clicks</h2>
 
             {/* 6 images cards */}
@@ -68,6 +105,7 @@ const Community = () => {
             </div>
            
 
+            </div>
             </div>
             
         </div>
