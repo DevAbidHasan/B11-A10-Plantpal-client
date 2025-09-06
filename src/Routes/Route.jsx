@@ -10,6 +10,7 @@ import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import Home from "../Layouts/MainLayout/Home";
 import AddPlant from "../Pages/AddPlant";
+import AllPlants from "../Pages/AllPlants";
 
  export const router = createBrowserRouter([
     {
@@ -26,8 +27,9 @@ import AddPlant from "../Pages/AddPlant";
                 Component: AddPlant
             },
             {
-                path :"/about",
-                element :<h2>this is about</h2>
+                path :"/all-plants",
+                loader : async ()=>fetch ("http://localhost:3000/plants"),
+                Component : AllPlants
             },
         ]
     },
