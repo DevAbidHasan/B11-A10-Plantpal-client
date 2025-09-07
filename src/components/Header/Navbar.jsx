@@ -87,7 +87,7 @@ const Navbar = () => {
           <NavLink to="/">Home</NavLink>
           <NavLink to="/all-plants">All Plants</NavLink>
           <NavLink to="/add-plant">Add Plant</NavLink>
-          <NavLink to="/my-plants">My Plants</NavLink>
+          <NavLink to={`/my-plants/${encodeURIComponent(user?.email)}`}>My Plants</NavLink>
           <div >
             
             {
@@ -108,7 +108,8 @@ const Navbar = () => {
           <NavLink to="/" className="hover:text-white ">Home</NavLink>
           <NavLink  className="hover:text-white " to="/all-plants">All Plants</NavLink>
           <NavLink to="/add-plant" className="hover:text-white ">Add Plant</NavLink>
-          <NavLink to="/my-plants" className="hover:text-white ">My Plants</NavLink>
+          <NavLink to={`/my-plants/${encodeURIComponent(user?.email)}`}
+ className="hover:text-white ">My Plants</NavLink>
           {/* <NavLink>{user.email}</NavLink> */}
           
         </div>

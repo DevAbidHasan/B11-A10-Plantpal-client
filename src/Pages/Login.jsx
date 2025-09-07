@@ -5,6 +5,8 @@ import { Link, useLocation, useNavigate } from 'react-router';
 import { auth, AuthContext } from '../Provider/AuthProvider';
 import { GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
 import { ToastContainer } from 'react-toastify';
+import Swal from 'sweetalert2';
+
 
 const Login = () => {
 
@@ -22,10 +24,22 @@ const Login = () => {
         const password=e.target.password.value;
         login(email, password)
         .then((result)=>{
-           alert("login ok");
+           Swal.fire({
+            title:"Congratulations ",
+            text :"Login Successful !!!",
+            icon : "success",
+            button : "OK",
+            
+           });
+           navigate (`${location.state ? location.state : "/"}`);
         })
         .catch((error)=>{
-           alert("login failed");
+           Swal.fire({
+            title:"Failure ",
+            text :"Login Failed !!!",
+            icon : "error",
+            button : "OK"
+           });
         })
     }
 
@@ -48,14 +62,24 @@ const Login = () => {
         // Sign in with Google popup
         const result = await signInWithPopup(auth, provider);
 
-        alert("google login ok");
-        // console.log(result);
+        Swal.fire({
+            title:"Congratulations ",
+            text :"Login Successful !!!",
+            icon : "success",
+            button : "OK",
+            
+           });
 
         navigate(`${location.state? location.state : "/"}`);
 
     } catch (error) {
         // console.error("Google login error:", error);
-       alert("google login error");
+        Swal.fire({
+            title:"Failure ",
+            text :"Login Failed !!!",
+            icon : "error",
+            button : "OK"
+           });
     }
 };
 

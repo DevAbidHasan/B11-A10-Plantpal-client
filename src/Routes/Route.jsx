@@ -52,7 +52,8 @@ import MyPlants from "../Pages/MyPlants";
                 hydrateFallbackElement:<Loading></Loading>
             },
             {
-                path : "/my-plants",
+                path : "/my-plants/:email",
+                loader : async ({params}) => fetch(`http://localhost:3000/my-plants/${params.email}`),
                 element : (
                     <PrivateRoute>
                         <MyPlants></MyPlants>
