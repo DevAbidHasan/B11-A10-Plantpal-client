@@ -3,7 +3,6 @@ import { Link, useLoaderData } from 'react-router';
 import PlantRow from './PlantRow';
 import { IoMdEye } from "react-icons/io";
 
-
 const AllPlants = () => {
     const plants = useLoaderData();
     

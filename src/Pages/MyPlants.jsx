@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router';
 
 import MyPlantCard from './MyPlantCard';
 
 const MyPlants = () => {
-    const plants = useLoaderData();
+    const Initialplants = useLoaderData();
+
+    const [plants, setPlants]=useState(Initialplants);
+
     return (
         <div className='mt-8 w-11/12 mx-auto'>
             <h2 className='text-2xl md:text-3xl lg:text-4xl font-black text-green-600 text-center poppins'>My Plants : {plants.length}</h2>
@@ -13,7 +16,7 @@ const MyPlants = () => {
                 plants.length > 0 ? (
                     <div className='grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10'>
                         {
-                            plants.map((plant,index)=><MyPlantCard key={index} plant={plant}></MyPlantCard>)
+                            plants.map((plant,index)=><MyPlantCard plants={plants} setPlants={setPlants} key={index} plant={plant}></MyPlantCard>)
                         }
                     </div>
                 ) : (
