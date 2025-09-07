@@ -15,6 +15,7 @@ import PlantDetails from "../Pages/PlantDetails";
 import PrivateRoute from "../Provider/PrivateRoute";
 import Loading from "../Pages/Loading";
 import MyPlants from "../Pages/MyPlants";
+import UpdatePlant from "../Pages/UpdatePlant";
 
  export const router = createBrowserRouter([
     {
@@ -59,6 +60,17 @@ import MyPlants from "../Pages/MyPlants";
                         <MyPlants></MyPlants>
                     </PrivateRoute>
                 )
+            },
+            // update plant route
+            {
+                path :"/update-plant/:id",
+                loader : async ({params}) => fetch(`http://localhost:3000/update-plant/${params.id}`),
+                element : (
+                    <PrivateRoute>
+                        <UpdatePlant></UpdatePlant>
+                    </PrivateRoute>
+                )
+
             }
         ]
     },

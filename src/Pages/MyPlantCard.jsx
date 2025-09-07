@@ -24,8 +24,8 @@ const MyPlantCard = ({plant}) => {
     <Link to={`/plants/${plant._id}`}>
         <button title='View Details' className="btn join-item text-white hover:bg-[#f7d8af] hover:rounded-md bg-[#D2B48C] "><IoEye size={16}/></button>
     </Link>
-    <Link >
-        <button title='Edit Details' className="btn join-item bg-black hover:bg-gray-600 hover:rounded-md text-white"><FaPen size={16}/></button>
+    <Link to={`/update-plant/${plant._id}`}>
+        <button title='Update Details' className="btn join-item bg-black hover:bg-gray-600 hover:rounded-md text-white"><FaPen size={16}/></button>
     </Link>
     <Link>
         <button title='Delete Plant' className="btn join-item text-white hover:rounded-md hover:bg-red-400 bg-red-500"><MdDelete size={16}/></button></Link>
