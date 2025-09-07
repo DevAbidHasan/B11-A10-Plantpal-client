@@ -1,75 +1,64 @@
-import React  from 'react';
+import React, { useContext }  from 'react';
 import { FcGoogle } from "react-icons/fc";
 import { Helmet } from 'react-helmet';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
+import { auth, AuthContext } from '../Provider/AuthProvider';
+import { GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
+import { ToastContainer } from 'react-toastify';
 
 const Login = () => {
-//     const {login}=useContext(AuthContext);
+
+    const {login}=useContext(AuthContext);
+
+    const navigate= useNavigate();
+    const location = useLocation();
 
 
+    // handle manual login
 
-//     const handleLogin=(e)=>{
-//         e.preventDefault();
-//         const email=e.target.email.value;
-//         const password=e.target.password.value;
-//         // console.log(email, password);
-//         login(email,password)
-//         .then((result)=>{
-//             swal({
-//             title: "Congratulations",
-//             text: "Login successful !!!",
-//             icon: "success",
-//             button: "OK",
-//             });
-//             navigate(`${location.state? location.state : "/"}`);
-//         })
-//         .catch((error)=>{
-//             swal({
-//             title: "Error",
-//             text: "Login failed, Try again !!!",
-//             icon: "error",
-//             button: "OK",
-//             });
-            
-//         });
-//     }
+    const handleLogin=(e)=>{
+        e.preventDefault();
+        const email=e.target.email.value;
+        const password=e.target.password.value;
+        login(email, password)
+        .then((result)=>{
+           alert("login ok");
+        })
+        .catch((error)=>{
+           alert("login failed");
+        })
+    }
 
-//     const handleGoogleLogin = async (e) => {
-//     e.preventDefault();
 
-//     try {
-//         // Optional: Sign out first to clear any saved Firebase session
-//         await signOut(auth);
+    // handle google login
 
-//         // Create Google provider and force account chooser
-//         const provider = new GoogleAuthProvider();
-//         provider.setCustomParameters({
-//             prompt: 'select_account' // Always ask which account to use
-//         });
+ const handleGoogleLogin = async (e) => {
+    e.preventDefault();
 
-//         // Sign in with Google popup
-//         const result = await signInWithPopup(auth, provider);
+    try {
+        // Optional: Sign out first to clear any saved Firebase session
+        await signOut(auth);
 
-//         swal({
-//             title: "Congratulations",
-//             text: "Login successful !!!",
-//             icon: "success",
-//             button: "OK",
-//         });
-//         // console.log(result);
+        // Create Google provider and force account chooser
+        const provider = new GoogleAuthProvider();
+        provider.setCustomParameters({
+            prompt: 'select_account' // Always ask which account to use
+        });
 
-//         navigate(`${location.state? location.state : "/"}`);
+        // Sign in with Google popup
+        const result = await signInWithPopup(auth, provider);
 
-//     } catch (error) {
-//         // console.error("Google login error:", error);
-//         swal({
-//             title: "Error",
-//             text: "Login failed, Try again !!!",
-//             icon: "error",
-//             button: "OK",
-//         });
-//     }
-// };
+        alert("google login ok");
+        // console.log(result);
+
+        navigate(`${location.state? location.state : "/"}`);
+
+    } catch (error) {
+        // console.error("Google login error:", error);
+       alert("google login error");
+    }
+};
+
 
 
     return (
@@ -80,11 +69,12 @@ const Login = () => {
                 </title>
             </Helmet>
                         <h2 className='text-center poppins font-semibold py-5 mx-7 border-gray-300 border-dashed border-b text-blue-600 text-xl'>Login your account</h2>
-                        <form  className="card-body mx-2 sm:mx-5">
+                        <form onSubmit={handleLogin} className="card-body mx-2 sm:mx-5">
                             <fieldset className="fieldset inter">
                             <label className="font-semibold text-md -mt-1 mb-2">Email address</label>
 
                             {/* email */}
+                            <ToastContainer/>
                             
                             <input required name="email" type="email" className="input w-full rounded-xs bg-base-100 border" placeholder="Enter your email address" />
 
@@ -95,7 +85,7 @@ const Login = () => {
                             <input required name="password" type="password" className="input w-full rounded-xs border bg-base-100 mb-3" placeholder="Enter your password" />
 
                             <button type="submit" className="btn -mb-1 btn-primary my-4 ">Login</button>
-                            <button  type="submit" className="btn flex  items-center mt-2 gap-5"><FcGoogle size={25}/>Login with google</button>
+                            <button onClick={handleGoogleLogin} type="submit" className="btn flex  items-center mt-2 gap-5"><FcGoogle size={25}/>Login with google</button>
 
                             </fieldset>
                         </form>

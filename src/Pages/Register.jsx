@@ -1,11 +1,56 @@
 import React, { use, useContext } from 'react';
 
 import { Helmet } from 'react-helmet';
-import { Link } from 'react-router';
+import { Link, useLoaderData, useLocation, useNavigate } from 'react-router';
+import { AuthContext } from '../Provider/AuthProvider';
+import { toast, ToastContainer } from 'react-toastify';
+import Swal from 'sweetalert2';
+
 
 
 
 const Register = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const {createUser, updateUser, setUser}=useContext(AuthContext);
+
+    const handleRegistration=(e)=>{
+        e.preventDefault();
+        const name = e.target.name.value;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        const photo = e.target.photoURL.value;
+        console.log(email, password);
+
+        // setUser("");
+        createUser (email, password)
+        .then(res => {
+            const user = res.user;
+            console.log(user);
+
+            // update user while creating
+
+            updateUser({displayName:name,photoURL:photo})
+            .then((result)=>{
+                    setUser({...user, displayName:name, photoURL:photo});
+                    toast.success("Registration successful!");
+                    navigate("/");   
+            })
+            .catch((error)=>{
+                console.log(error);
+                    alert("failed regi")
+                    setUser(user);
+            })
+            
+        })
+        .catch((error)=>{
+            console.log(error);
+           alert("regi failed")
+                
+        })
+        
+    }
 
     return (
         <div className="card bg-base-100 mt-10 -mb-20 mx-auto w-full rounded-xs max-w-sm shrink-0 shadow-2xl">
@@ -15,12 +60,12 @@ const Register = () => {
                 </title>
             </Helmet>
                         <h2 className='text-center poppins text-blue-500 font-semibold py-5  mx-7 border-gray-300 border-dashed border-b text-xl'>Register your account</h2>
-                        <form className="card-body inter mx-5">
+                        <form onSubmit={handleRegistration} className="card-body inter mx-5">
                             <fieldset className="fieldset">
                                 <label className="font-semibold text-md -mt-1 mb-2">Your Name</label>
-
+                            <ToastContainer/>
                             {/* name */}
-
+                            <ToastContainer/>
                             <input name="name" type="text" required className="input w-full rounded-xs bg-base-100 border" placeholder="Enter your name" />
                             <label className="font-semibold text-md -mt-1 mb-2">Photo URL</label>
 

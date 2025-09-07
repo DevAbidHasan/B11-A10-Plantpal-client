@@ -12,6 +12,9 @@ import Home from "../Layouts/MainLayout/Home";
 import AddPlant from "../Pages/AddPlant";
 import AllPlants from "../Pages/AllPlants";
 import PlantDetails from "../Pages/PlantDetails";
+import PrivateRoute from "../Provider/PrivateRoute";
+import Loading from "../Pages/Loading";
+import MyPlants from "../Pages/MyPlants";
 
  export const router = createBrowserRouter([
     {
@@ -26,7 +29,12 @@ import PlantDetails from "../Pages/PlantDetails";
             },
             {
                 path :"/add-plant",
-                Component: AddPlant
+                element : (
+                    <PrivateRoute>
+                        <AddPlant></AddPlant>
+                    </PrivateRoute>
+                ),
+                hydrateFallbackElement:<Loading></Loading>
             },
             {
                 path :"/all-plants",
@@ -36,7 +44,20 @@ import PlantDetails from "../Pages/PlantDetails";
             {
                 path:"/plants/:id",
                 loader : async ({params})=> fetch(`http://localhost:3000/plants/${params.id}`),
-                Component:PlantDetails
+                element :(
+                    <PrivateRoute>
+                        <PlantDetails></PlantDetails>
+                    </PrivateRoute>
+                ),
+                hydrateFallbackElement:<Loading></Loading>
+            },
+            {
+                path : "/my-plants",
+                element : (
+                    <PrivateRoute>
+                        <MyPlants></MyPlants>
+                    </PrivateRoute>
+                )
             }
         ]
     },

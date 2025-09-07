@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../Provider/AuthProvider';
 
 const AddPlant = () => {
 
     const navigate=useNavigate();
+
+    const {user}=useContext(AuthContext);
 
     const handleFormSubmit=(e)=>{
         e.preventDefault();
@@ -95,13 +98,13 @@ const AddPlant = () => {
                     </fieldset>
                     <fieldset className="fieldset my-6 bg-base-200 border-base-300 rounded-box  border p-4">
                     <label className="label"> User Name</label>
-                    <input required type="text" name="username" className="input w-full" placeholder="Enter username" />
+                    <input required type="text" name="username" className="input w-full" value={user.displayName} />
                     </fieldset>
                    
                 </div>
                 <fieldset className="fieldset my-6 bg-base-200 border-base-300 rounded-box  border p-4">
                     <label className="label"> User Email</label>
-                    <input  type="text" name="email" className="input w-full" placeholder="Enter user email" />
+                    <input  type="text" name="email" className="input w-full" value={user.email} />
                 </fieldset>
                 
                 <input className='btn btn-primary inter w-full' type="submit" value="Add Plant" />

@@ -1,9 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router';
 import { HiMenu } from "react-icons/hi";
 import { IoCloseSharp } from "react-icons/io5";
+import { AuthContext } from '../../Provider/AuthProvider';
+import Swal from 'sweetalert2';
+import { FaUserSecret } from "react-icons/fa";
 
 const Navbar = () => {
+
+  const {user, logout}=useContext(AuthContext);
+
+  const handleLogOut=()=>{
+    logout()
+    .then((result)=>{
+      Swal.fire({
+        title: "Logout Successful",
+        icon: "warning",
+        timer: 1500,
+        draggable: false
+      });
+    })
+    .catch((error)=>{
+      console.log("logout error");
+    })
+  }
 
   const [isOpen, setIsOpen]=useState(false);
   const toggleMenu=()=>{
@@ -40,6 +60,12 @@ const Navbar = () => {
         <div className='z-20 text-2xl font-bold'>
          <Link to="/">🌿Plant<span className='text-green-500'>pal</span></Link>
         </div>
+        <div className='flex items-center justify-center gap-3 sm:gap-6'>
+          {
+              user && (
+                <img className='border z-20 md:hidden flex bg-green-500 object-cover rounded-full h-[30px] w-[30px] border-green-800' title={user.displayName} src={user ? user.photoURL: "https://i.ibb.co.com/qYbhkjWj/image.png"}  alt="" onError={(e) => { e.target.src = "https://i.ibb.co/qYbhkjWj/image.png"; }} />
+              ) 
+            }
         {
           !isOpen && (
             <div onClick={toggleMenu} className='cursor-pointer hover:text-green-500 md:hidden'>
@@ -50,30 +76,61 @@ const Navbar = () => {
         {
           isOpen && (
             <div onClick={toggleMenu} className='cursor-pointer hover:text-red-500 z-20 md:hidden '>
+              
               <IoCloseSharp size={30}/>
             </div>
           )
         }
+        </div>
        {
         isOpen ? <div className='bg-gray-700 overflow-y-hidden fixed z-10 top-0 left-0 w-screen flex flex-col items-center justify-center gap-5 duration-300 ease-in min-h-[380px] max-h-screen'>
           <NavLink to="/">Home</NavLink>
           <NavLink to="/all-plants">All Plants</NavLink>
           <NavLink to="/add-plant">Add Plant</NavLink>
-          <NavLink>My Plants</NavLink>
-          <Link to="/auth/login" className="btn btn-primary">Login</Link>
-          <Link to="/auth/registration" className="btn btn-success">Register</Link>
+          <NavLink to="/my-plants">My Plants</NavLink>
+          <div >
+            
+            {
+              user ? (<Link to={`/user/${user.displayName}`} className="btn btn-primary">
+                Dashboard
+              </Link>) : ("")
+            }
+          </div>
+          <div  className="">{user ? (<button onClick={handleLogOut} className='btn btn-warning'>Logout</button>) : (<Link className='btn' to="/auth/login">Login</Link>)}</div>
+          <div>
+            {
+              !user ? (<Link to="/auth/registration" className="btn btn-success">Register</Link>) : ("")
+            }
+          </div>
         </div> : <div className='bg-gray-800 overflow-y-hidden fixed z-10 top-0 left-[-150%] w-screen flex flex-col items-center justify-center gap-5 duration-300 ease-in min-h-[380px] max-h-screen'></div>
        }
         <div className='md:flex text-gray-300  md:gap-5 lg:gap-11 items-center justify-center hidden '>
           <NavLink to="/" className="hover:text-white ">Home</NavLink>
           <NavLink  className="hover:text-white " to="/all-plants">All Plants</NavLink>
           <NavLink to="/add-plant" className="hover:text-white ">Add Plant</NavLink>
-          <NavLink to="/dkd" className="hover:text-white ">My Plants</NavLink>
+          <NavLink to="/my-plants" className="hover:text-white ">My Plants</NavLink>
+          {/* <NavLink>{user.email}</NavLink> */}
           
         </div>
         <div className='md:flex hidden items-center gap-5 justify-between'>
-          <Link to="/auth/login" className="btn btn-primary">Login</Link>
-          <Link to="/auth/registration" className="btn btn-success">Register</Link>
+          <div className='flex items-center justify-center gap-4'>
+            {
+              user && (
+                <img className='border bg-green-500 object-cover rounded-full h-[40px] w-[40px] border-green-800' title={user.displayName} src={user ? user.photoURL: "https://i.ibb.co.com/qYbhkjWj/image.png"}  alt="" onError={(e) => { e.target.src = "https://i.ibb.co/qYbhkjWj/image.png"; }} />
+              ) 
+            }
+            {
+              user ? (<Link to={`/user/${user.displayName}`} className="btn btn-primary">
+                Dashboard
+              </Link>) : ("")
+            }
+          </div>
+          <div  className="">{user ? (<button onClick={handleLogOut} className='btn '>Logout</button>) : (<Link className='btn' to="/auth/login">Login</Link>)}</div>
+          <div>
+            {
+              !user ? (<Link to="/auth/registration" className="btn btn-success">Register</Link>) : ("")
+            }
+          </div>
         </div>
       </div>
     </nav>

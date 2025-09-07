@@ -8,9 +8,9 @@ const Contact = () => {
             <h2 className='text-center text-2xl poppins md:text-3xl text-blue-600 mb-16 mt-10 font-black'>Get In Touch</h2>
            
            {/* copied */}
-           <div className='flex items-center lg:flex-row flex-col-reverse gap-10 justify-between'>
+           <div className='flex items-center lg:flex-row flex-col gap-10 justify-center lg:justify-between'>
               <div className='w-full'>
-                <Lottie className='max-w-[320px]' animationData={contactImage}></Lottie>
+                <Lottie className='max-w-[320px] mx-auto' animationData={contactImage}></Lottie>
             </div>
             
             <div className='w-full inter'>
