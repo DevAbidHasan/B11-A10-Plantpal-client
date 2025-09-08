@@ -1,11 +1,11 @@
 # <p align="center">🌿 Plant-Pal Plant care tracking website</p>
 #### <p align="center">A MERN Stack Responsive Website (Client-Side)</p>
-#### <p align="center">Live Link : https://plantpal-plant-care-tracking.web.app/</p>
-#### <p align="center">Server Repository ( node, express )  : https://github.com/DevAbidHasan/B11-A10-Plantpal-server/</p>
+#### Live Link : https://plantpal-plant-care-tracking.web.app/
+#### Server Repository ( node, express )  : https://github.com/DevAbidHasan/B11-A10-Plantpal-server/
 <br/>
-<p align="center">
+
   <img width="600" height="350" alt="PlantPal Screenshot" src="https://github.com/user-attachments/assets/8f5a5f2d-c576-4dda-ae05-69df08982926" />
-</p>
+
 
 ---
 
@@ -28,18 +28,17 @@ This project focuses on **user-friendly UI**, **dynamic interactivity**, and **r
 
 - **User Authentication:** Login and registration with email/password or Google login.
 - **Dashboard:** Personal area to see your plants and plant details.
-  <p align="center"><img width=700" height="400" alt="Screenshot 2025-09-08 053628" src="https://github.com/user-attachments/assets/c1b32df5-af4f-4a15-96b3-3d1fcd2b22c2" />
-</p>
+  <img width=700" height="400" alt="Screenshot 2025-09-08 053628" src="https://github.com/user-attachments/assets/c1b32df5-af4f-4a15-96b3-3d1fcd2b22c2" />
+
 - **Add & Update Plants:** Users can add new plants and update their details.
-<p align="center"><img width="700" height="500" alt="Screenshot 2025-09-08 074458" src="https://github.com/user-attachments/assets/e8b548ef-7ef7-4480-80c7-7daf0ec1c253" />
-<p/>
+<img width="700" height="500" alt="Screenshot 2025-09-08 074458" src="https://github.com/user-attachments/assets/e8b548ef-7ef7-4480-80c7-7daf0ec1c253" />
+
 - **Delete Plants:** Easy deletion of plants from the list.
-  <p align="center"><img width="600" height="450" alt="Screenshot 2025-09-08 074557" src="https://github.com/user-attachments/assets/2b3296b0-f167-4189-b9fd-4e767df4ade2" />
-<p/>
+
 - **Dynamic UI Components:** Interactive cards, modals, and toast notifications.
 - **Responsive Design:** Works beautifully on mobile, tablet, and desktop devices.
-  <p align="center"><img width="300" height="481" alt="Screenshot 2025-09-08 074136" src="https://github.com/user-attachments/assets/8c96c59e-f72e-4ce1-a752-ac1e3cf96524" />
-</p>
+ <img width="300" height="481" alt="Screenshot 2025-09-08 074136" src="https://github.com/user-attachments/assets/8c96c59e-f72e-4ce1-a752-ac1e3cf96524" />
+
 - **Community Section:** Users can share plant stories and photos. <br/>
 - **Lottie Animations:** Visually appealing background and banners. <br/>
 - **See More / See Less:** Limit the number of displayed plant cards initially with toggle functionality. <br/>
@@ -80,4 +79,4 @@ This project focuses on **user-friendly UI**, **dynamic interactivity**, and **r
 - Private routes are protected using the authentication context.
 
   <p align="center"> @ Abid Hasan Plabon </p>
->>>>>>> f0b7ab3f2fa415ed5cb9d64294cc1d4b181ef472
+
