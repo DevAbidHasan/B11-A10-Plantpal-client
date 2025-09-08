@@ -16,6 +16,7 @@ import PrivateRoute from "../Provider/PrivateRoute";
 import Loading from "../Pages/Loading";
 import MyPlants from "../Pages/MyPlants";
 import UpdatePlant from "../Pages/UpdatePlant";
+import Dashboard from "../Pages/Dashboard";
 
  export const router = createBrowserRouter([
     {
@@ -58,6 +59,14 @@ import UpdatePlant from "../Pages/UpdatePlant";
                 element : (
                     <PrivateRoute>
                         <MyPlants></MyPlants>
+                    </PrivateRoute>
+                )
+            },
+            {
+                path :"/user-dashboard",
+                element : (
+                    <PrivateRoute>
+                        <Dashboard></Dashboard>
                     </PrivateRoute>
                 )
             },

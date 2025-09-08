@@ -7,7 +7,7 @@ import { AuthContext } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 
 
-const MyPlantCard = ({plant, plants, setPlants}) => {
+const MyPlantCard = ({plant, plants, setVisiblePlants}) => {
 
     const {setUser}=useContext(AuthContext);
 
@@ -39,7 +39,7 @@ const MyPlantCard = ({plant, plants, setPlants}) => {
                     // remove the coffee from the UI & state
                     
                     const remainingPlants = plants.filter(cof=>cof._id !== _id);
-                    setPlants(remainingPlants);
+                    setVisiblePlants(remainingPlants);
                 }
             })
             

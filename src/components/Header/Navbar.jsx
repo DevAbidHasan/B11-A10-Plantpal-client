@@ -91,7 +91,7 @@ const Navbar = () => {
           <div >
             
             {
-              user ? (<Link to={`/user/${user.displayName}`} className="btn btn-primary">
+              user ? (<Link to="/user-dashboard" className="btn btn-primary">
                 Dashboard
               </Link>) : ("")
             }
@@ -121,7 +121,7 @@ const Navbar = () => {
               ) 
             }
             {
-              user ? (<Link to={`/user/${user.displayName}`} className="btn btn-primary">
+              user ? (<Link to="/user-dashboard" className="btn btn-primary">
                 Dashboard
               </Link>) : ("")
             }
