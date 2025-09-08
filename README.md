@@ -1,9 +1,8 @@
-<<<<<<< HEAD
-=======
 # <p align="center">🌿 Plant-Pal Plant care tracking website</p>
 #### <p align="center">A MERN Stack Responsive Website (Client-Side)</p>
 #### <p align="center">Live Link : https://plantpal-plant-care-tracking.web.app/</p>
-
+#### <p align="center">Server Repository ( node, express )  : https://github.com/DevAbidHasan/B11-A10-Plantpal-server/</p>
+<br/>
 <p align="center">
   <img width="600" height="350" alt="PlantPal Screenshot" src="https://github.com/user-attachments/assets/8f5a5f2d-c576-4dda-ae05-69df08982926" />
 </p>
