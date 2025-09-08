@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+
+/* @custom-variant dark (&:where(.dark, .dark *));
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *)); */
+
 .no-scroll{
     overflow: hidden;
 }

@@ -6,6 +6,7 @@ import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 import { FaUserSecret } from "react-icons/fa";
 
+
 const Navbar = () => {
 
   const {user, logout}=useContext(AuthContext);
@@ -21,7 +22,12 @@ const Navbar = () => {
       });
     })
     .catch((error)=>{
-      console.log("logout error");
+      Swal.fire({
+        title: "Logout Failed",
+        icon: "error",
+        timer: 1500,
+        draggable: false
+      });
     })
   }
 
@@ -57,10 +63,11 @@ const Navbar = () => {
    <div className='bg-gray-900 poppins py-2'>
      <nav className=' w-11/12 mx-auto text-white'>
       <div className='flex items-center justify-between'>
-        <div className='z-20 text-2xl font-bold'>
-         <Link to="/">🌿Plant<span className='text-green-500'>pal</span></Link>
+        <div className='z-20  text-2xl font-bold'>
+         <Link to="/">🌿Plant<span className="text-green-500 ">pal</span></Link>
         </div>
         <div className='flex items-center justify-center gap-3 sm:gap-6'>
+          
           {
               user && (
                 <img className='border z-20 md:hidden flex bg-green-500 object-cover rounded-full h-[30px] w-[30px] border-green-800' title={user.displayName} src={user ? user.photoURL: "https://i.ibb.co.com/qYbhkjWj/image.png"}  alt="" onError={(e) => { e.target.src = "https://i.ibb.co/qYbhkjWj/image.png"; }} />
@@ -83,7 +90,7 @@ const Navbar = () => {
         }
         </div>
        {
-        isOpen ? <div className='bg-gray-700 overflow-y-hidden fixed z-10 top-0 left-0 w-screen flex flex-col items-center justify-center gap-5 duration-300 ease-in min-h-[380px] max-h-screen'>
+        isOpen ? <div className='bg-gray-700 overflow-y-hidden fixed z-10 top-0 pt-10 left-0 w-screen flex flex-col items-center justify-center gap-5 duration-300 ease-in min-h-[380px] max-h-screen'>
           <NavLink to="/">Home</NavLink>
           <NavLink to="/all-plants">All Plants</NavLink>
           <NavLink to="/add-plant">Add Plant</NavLink>
@@ -125,6 +132,7 @@ const Navbar = () => {
                 Dashboard
               </Link>) : ("")
             }
+            {/* <ThemeToggle /> */}
           </div>
           <div  className="">{user ? (<button onClick={handleLogOut} className='btn '>Logout</button>) : (<Link className='btn' to="/auth/login">Login</Link>)}</div>
           <div>
@@ -132,6 +140,8 @@ const Navbar = () => {
               !user ? (<Link to="/auth/registration" className="btn btn-success">Register</Link>) : ("")
             }
           </div>
+
+          
         </div>
       </div>
     </nav>

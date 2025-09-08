@@ -1,10 +1,16 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { PiPlant } from "react-icons/pi";
 import { Link, NavLink } from 'react-router';
 
 const CookiesPolicy = () => {
     return (
         <div className='my-10 mb-25 w-11/12 mx-auto'>
+            <Helmet>
+                <title>
+                    Plantpal || Cookies Policy
+                </title>
+            </Helmet>
             <h2 className='text-center mb-5 md:text-3xl sm:text-2xl text-xl poppins font-black'>Cookies Policy</h2> <hr/>
             <p className='text-center mt-5 inter'><span className='font-bold  text-green-600'>PlantPal 🌿</span>uses cookies to improve your browsing experience.</p>
             <ol className='my-12 space-y-3 list-decimal list-inside'>

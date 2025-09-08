@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../Provider/AuthProvider';
+import { Helmet } from 'react-helmet';
 
 const AddPlant = () => {
 
@@ -15,10 +16,10 @@ const AddPlant = () => {
         const form=e.target;
         const formData= new FormData(form);
         const newPlant=Object.fromEntries(formData.entries());
-        console.log(newPlant);
+        // console.log(newPlant);
 
         // send data to DB through server
-        fetch('http://localhost:3000/plants' ,{
+        fetch('https://b11-a10-plantpal-server.vercel.app/plants' ,{
             method:"POST",
             headers :{
                 "content-type":"application/json"
@@ -45,6 +46,11 @@ const AddPlant = () => {
 
     return (
         <div className='w-11/12 my-10 mx-auto'>
+            <Helmet>
+                <title>
+                    Plantpal || Add Plant
+                </title>
+            </Helmet>
             <h2 className='text-2xl md:text-3xl lg:text-4xl mb-10 md:mt-15 md:mb-15 font-black text-green-600 text-center poppins'>Add Plant</h2>
             <div className='inter'>
                 <form onSubmit={handleFormSubmit} className='border p-6 border-gray-300 rounded-md' action="">

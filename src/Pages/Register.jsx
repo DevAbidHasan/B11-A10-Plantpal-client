@@ -43,13 +43,13 @@ const Register = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
         const photo = e.target.photoURL.value;
-        console.log(email, password);
+        // console.log(email, password);
 
         // setUser("");
         createUser (email, password)
         .then(res => {
             const user = res.user;
-            console.log(user);
+            // console.log(user);
 
             // update user while creating
 
@@ -65,7 +65,7 @@ const Register = () => {
                     navigate("/");   
             })
             .catch((error)=>{
-                console.log(error);
+                // console.log(error);
                     Swal.fire({
                         title :"Failure",
                         text :"Registration Failed, try again !",
@@ -92,7 +92,7 @@ const Register = () => {
         <div className="card bg-base-100 mt-10 -mb-20 mx-auto w-full rounded-xs max-w-sm shrink-0 shadow-2xl">
             <Helmet>
                 <title>
-                   PlantPal || Registration
+                   PlantPal Authentication || Registration
                 </title>
             </Helmet>
                         <h2 className='text-center poppins text-blue-500 font-semibold py-5  mx-7 border-gray-300 border-dashed border-b text-xl'>Register your account</h2>

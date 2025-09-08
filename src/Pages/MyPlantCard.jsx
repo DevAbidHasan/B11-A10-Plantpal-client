@@ -24,7 +24,7 @@ const MyPlantCard = ({plant, setPlants, plants, setVisiblePlants}) => {
     if (result.isConfirmed) {
         
             // start deleting the coffee when user will confirm
-            fetch(`http://localhost:3000/plants/${plant._id}`,{
+            fetch(`https://b11-a10-plantpal-server.vercel.app/plants/${plant._id}`,{
                 method : "DELETE"
             })
             .then(res=>res.json())

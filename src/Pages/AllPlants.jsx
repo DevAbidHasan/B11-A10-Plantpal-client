@@ -2,12 +2,18 @@ import React from 'react';
 import { Link, useLoaderData } from 'react-router';
 import PlantRow from './PlantRow';
 import { IoMdEye } from "react-icons/io";
+import { Helmet } from 'react-helmet';
 
 const AllPlants = () => {
     const plants = useLoaderData();
     
     return (
         <div className='sm:w-11/12 w-full mx-auto my-10'>
+            <Helmet>
+                <title>
+                    Plantpal || All Plants
+                </title>
+            </Helmet>
             <h2 className='text-center text-2xl poppins md:text-3xl text-blue-600 mt-5 mb-10 font-black'>All Plants</h2>
             <div className=''>
                 <table className='w-full border border-gray-300 '>

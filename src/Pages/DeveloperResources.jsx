@@ -1,10 +1,16 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { PiPlant } from "react-icons/pi";
 import { Link, NavLink } from 'react-router';
 
 const DeveloperResources = () => {
     return (
         <div className='my-10 mb-25 w-11/12 mx-auto'>
+            <Helmet>
+                <title>
+                    Plantpal || Developer Resources
+                </title>
+            </Helmet>
             <h2 className='text-center mb-5 md:text-3xl sm:text-2xl text-xl poppins font-black'>Developer Resources</h2> <hr/>
             <p className='text-center mt-5 inter'>Welcome developers ! 🌿
                 If you want to integrate or build on top of <span className='font-bold text-green-600'>PlantPal</span>, here are some resources:</p>

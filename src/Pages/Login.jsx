@@ -86,10 +86,10 @@ const Login = () => {
 
 
     return (
-         <div className="card mt-10 -mb-20 mx-2 bg-base-100 sm:mx-auto w-full rounded-xs max-w-sm shrink-0 shadow-2xl">
+         <div className="card  mt-10 -mb-20 px-2 mx-auto bg-base-100 sm:mx-auto w-full rounded-xs max-w-sm shrink-0 shadow-2xl">
             <Helmet>
                 <title>
-                    PlantPal || Login
+                    PlantPal Authentication | Login
                 </title>
             </Helmet>
                         <h2 className='text-center poppins font-semibold py-5 mx-7 border-gray-300 border-dashed border-b text-blue-600 text-xl'>Login your account</h2>

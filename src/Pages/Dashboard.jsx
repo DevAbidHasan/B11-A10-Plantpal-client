@@ -9,7 +9,7 @@ const Dashboard = () => {
         <div className='w-11/12 space-y-3 mx-auto px-2 my-7 md:my-10'>
             <Helmet>
                 <title>
-                    Dashboard || Plantpal
+                    Plantpal || User Dashboard
                 </title>
             </Helmet>
             <h3 className='text-center poppins text-blue-500 lg:text-3xl md:text-2xl text-xl font-bold'>User Dashboard</h3>

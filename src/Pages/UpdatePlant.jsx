@@ -2,13 +2,14 @@ import React, { useContext } from 'react';
 import { useLoaderData, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const UpdatePlant = () => {
 
 
     const plant = useLoaderData();
     const {user}=useContext(AuthContext);
-    console.log(plant);
+    // console.log(plant);
 
 
     const navigate = useNavigate();
@@ -20,10 +21,10 @@ const UpdatePlant = () => {
   const form = e.target;
   const formData = new FormData(form);
   const newPlant = Object.fromEntries(formData.entries());
-  console.log(newPlant);
+//   console.log(newPlant);
 
   // fetching updatedData and sending to database
-  fetch(`http://localhost:3000/update-plant/${plant._id}`, {
+  fetch(`https://b11-a10-plantpal-server.vercel.app/update-plant/${plant._id}`, {
     method: "PUT",
     headers: {
       "content-type": "application/json",
@@ -32,7 +33,7 @@ const UpdatePlant = () => {
   })
     .then((res) => res.json()) //
     .then((data) => {
-      console.log("Update response:", data);
+    //   console.log("Update response:", data);
 
       if (data.modifiedCount > 0) {
         Swal.fire({
@@ -55,7 +56,7 @@ const UpdatePlant = () => {
       }
     })
     .catch((error) => {
-      console.error("Error updating plant:", error);
+    //   console.error("Error updating plant:", error);
       Swal.fire({
         title: "Error",
         text: "Something went wrong while updating the plant.",
@@ -70,6 +71,11 @@ const UpdatePlant = () => {
 
     return (
          <div className='w-11/12 my-10 mx-auto'>
+            <Helmet>
+                <title>
+                    Plantpal || Update Plant
+                </title>
+            </Helmet>
             <h2 className='text-2xl md:text-3xl lg:text-4xl mb-8 md:mt-15 md:mb-15 font-black text-green-600 text-center poppins'>Update Plant</h2>
             <div className='inter'>
                 <form onSubmit={handleFormSubmit} className='border p-6 border-gray-300 rounded-md' action="">

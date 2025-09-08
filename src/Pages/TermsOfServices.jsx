@@ -1,10 +1,16 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { PiPlant } from "react-icons/pi";
 import { Link, NavLink } from 'react-router';
 
 const TermsOfServices = () => {
     return (
         <div className='my-10 mb-25 w-11/12 mx-auto'>
+            <Helmet>
+                <title>
+                    Plantpal || Terms of Services
+                </title>
+            </Helmet>
             <h2 className='text-center mb-5 md:text-3xl sm:text-2xl text-xl poppins font-black'>Terms of Services</h2> <hr/>
             <p className='text-center mt-5 inter'><span className='text-2xl font-bold text-green-600'>W</span>elcome to <span className='font-bold  text-green-600'>PlantPal🌿 </span>! By using our website and services, you agree to the following terms. Please read them carefully.</p>
             <ol className='my-12 space-y-3 list-decimal list-inside'>

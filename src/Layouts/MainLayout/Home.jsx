@@ -8,6 +8,7 @@ import Contact from '../../Pages/Contact';
 import FAQ from '../../Pages/FAQ';
 import { toast, ToastContainer } from 'react-toastify';
 import { useLocation, useNavigate } from 'react-router';
+import { Helmet } from 'react-helmet';
 
 const Home = () => {
     const location=useLocation();
@@ -20,6 +21,11 @@ const Home = () => {
     },[location.state])
     return (
         <div>
+            <Helmet>
+                <title>
+                    Plantal || Homepage
+                </title>
+            </Helmet>
             <ToastContainer/>
             <BannerSlider></BannerSlider>
             <NewPlants></NewPlants>

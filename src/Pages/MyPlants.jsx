@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useLoaderData } from 'react-router';
 
 import MyPlantCard from './MyPlantCard';
+import { Helmet } from 'react-helmet';
 
 const MyPlants = () => {
     const Initialplants = useLoaderData();
@@ -10,6 +11,11 @@ const MyPlants = () => {
 
     return (
         <div className='mt-8 w-11/12 mx-auto'>
+            <Helmet>
+                <title>
+                    Plantpal || My Plants
+                </title>
+            </Helmet>
             <h2 className='text-2xl md:text-3xl lg:text-4xl font-black text-green-600 text-center poppins'>My Plants : {plants.length}</h2>
             <div className='md:mt-8 mt-5'>
                {

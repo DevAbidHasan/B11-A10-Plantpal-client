@@ -1,10 +1,16 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { PiPlant } from "react-icons/pi";
 import { Link, NavLink } from 'react-router';
 
 const Privacy = () => {
     return (
         <div className='my-10 mb-25 w-11/12 mx-auto'>
+            <Helmet>
+                <title>
+                    Plantpal || Privacy Policy
+                </title>
+            </Helmet>
             <h2 className='text-center mb-5 md:text-3xl sm:text-2xl text-xl poppins font-black'>Privacy Policy</h2> <hr/>
             <p className='text-center mt-5 inter'>At <span className='font-bold  text-green-600'>PlantPal 🌿 </span>! we respect your privacy and are committed to protecting your personal data.</p>
             <ol className='my-12 space-y-3 list-decimal list-inside'>

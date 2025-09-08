@@ -1,10 +1,16 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { useLoaderData } from 'react-router';
 
 const PlantDetails = () => {
     const plant =useLoaderData();
     return (
         <div className='w-11/12 mt-10 mx-auto'>
+            <Helmet>
+                <title>
+                    Plantpal || Plant Details
+                </title>
+            </Helmet>
             <h2 className='text-center text-2xl md:text-3xl lg:text-4xl text-blue-600 mb-8 font-black poppins'>🪴{plant.name}</h2>
     
             <img className='md:w-[500px] border border-gray-200 shadow-2xl bg-white rounded-md w-[350px] sm:w-[400px] mb-7 mx-auto md:h-[300px] object-cover' src={plant.image} alt="Picture of plant" />

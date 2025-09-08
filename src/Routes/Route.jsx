@@ -26,7 +26,8 @@ import Dashboard from "../Pages/Dashboard";
         children:[
             {
                 index:true,
-                loader : async ()=>fetch ("http://localhost:3000/plants"),
+                loader : async ()=>fetch ("https://b11-a10-plantpal-server.vercel.app/plants"),
+               
                 Component: Home
             },
             {
@@ -40,12 +41,14 @@ import Dashboard from "../Pages/Dashboard";
             },
             {
                 path :"/all-plants",
-                loader : async ()=>fetch ("http://localhost:3000/plants"),
+                loader : async ()=>fetch ("https://b11-a10-plantpal-server.vercel.app/plants"),
+               
                 Component : AllPlants
             },
             {
                 path:"/plants/:id",
-                loader : async ({params})=> fetch(`http://localhost:3000/plants/${params.id}`),
+                loader : async ({params})=> fetch(`https://b11-a10-plantpal-server.vercel.app/plants/${params.id}`),
+               
                 element :(
                     <PrivateRoute>
                         <PlantDetails></PlantDetails>
@@ -55,7 +58,8 @@ import Dashboard from "../Pages/Dashboard";
             },
             {
                 path : "/my-plants/:email",
-                loader : async ({params}) => fetch(`http://localhost:3000/my-plants/${params.email}`),
+                loader : async ({params}) => fetch(`https://b11-a10-plantpal-server.vercel.app/my-plants/${params.email}`),
+              
                 element : (
                     <PrivateRoute>
                         <MyPlants></MyPlants>
@@ -73,7 +77,8 @@ import Dashboard from "../Pages/Dashboard";
             // update plant route
             {
                 path :"/update-plant/:id",
-                loader : async ({params}) => fetch(`http://localhost:3000/update-plant/${params.id}`),
+                loader : async ({params}) => fetch(`https://b11-a10-plantpal-server.vercel.app/update-plant/${params.id}`),
+                
                 element : (
                     <PrivateRoute>
                         <UpdatePlant></UpdatePlant>
