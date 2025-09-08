@@ -132,7 +132,7 @@ const UpdatePlant = () => {
                     <input  type="text" name="email" className="input w-full" value={user.email} />
                 </fieldset>
                 
-                <input className='btn btn-primary inter w-full' type="submit" value="Add Plant" />
+                <input className='btn btn-primary inter w-full' type="submit" value="Update Plant" />
 
             </form>
            {/* <Link className='flex justify-center my-8' to="/">

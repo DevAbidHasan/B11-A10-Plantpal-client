@@ -1,4 +1,4 @@
-import React, { use, useContext } from 'react';
+import React, { use, useContext, useState } from 'react';
 
 import { Helmet } from 'react-helmet';
 import { Link, useLoaderData, useLocation, useNavigate } from 'react-router';
@@ -14,6 +14,28 @@ const Register = () => {
     const location = useLocation();
 
     const {createUser, updateUser, setUser}=useContext(AuthContext);
+    
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
+    const [res, setRes] = useState("");
+
+    const handlePasswordChange = (e) => {
+    const value = e.target.value;
+    setPassword(value);
+
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/;
+
+    if (!passwordRegex.test(value)) {
+        setRes("");
+      setError(
+        "Password must be 5+ chars, include uppercase, lowercase, and a number."
+      );
+    } else {
+        setError("")
+      setRes("Password is okay Now.")
+    }
+  };
+
 
     const handleRegistration=(e)=>{
         e.preventDefault();
@@ -34,19 +56,33 @@ const Register = () => {
             updateUser({displayName:name,photoURL:photo})
             .then((result)=>{
                     setUser({...user, displayName:name, photoURL:photo});
-                    toast.success("Registration successful!");
+                    Swal.fire({
+                        title:"Congratulations ",
+                        text :"Registration Successful",
+                        icon :"success",
+                        button:"OK"
+                    })
                     navigate("/");   
             })
             .catch((error)=>{
                 console.log(error);
-                    alert("failed regi")
+                    Swal.fire({
+                        title :"Failure",
+                        text :"Registration Failed, try again !",
+                        icon :"error",
+                        button :"OK"
+                    })
                     setUser(user);
             })
             
         })
         .catch((error)=>{
-            console.log(error);
-           alert("regi failed")
+             Swal.fire({
+                        title :"Failure",
+                        text :"Registration Failed, try again !",
+                        icon :"error",
+                        button :"OK"
+                    })
                 
         })
         
@@ -77,11 +113,15 @@ const Register = () => {
                             {/* email */}
                            
                             <input name="email" required type="email" className="input w-full rounded-xs bg-base-100 border" placeholder="Enter your email address" />
+                            
                             <label className="font-semibold text-md -mt-1 mb-2">Password</label>
 
                             {/* email */}
 
-                            <input name="password" required type="text" className="input w-full rounded-xs bg-base-100 border" placeholder="Enter your password" />                            <button type="submit" className="btn btn-primary my-1">Register</button>
+                            <input onChange={handlePasswordChange} name="password" required type="text" className="input w-full rounded-xs bg-base-100 border" placeholder="Enter your password" />
+                             {error && <p className="text-red-500 mt-2 text-xs">{error}</p>}
+                             {res && <p className="text-green-600 mt-2 text-xs">{res}</p>}
+                            <button type="submit" className="btn btn-primary my-1">Register</button>
                             <p className='text-center font-semibold text-md text-accent'>Already Registered ? <Link className='font-bold text-secondary' to="/auth/login">Login</Link></p>
                             </fieldset>
                         </form>

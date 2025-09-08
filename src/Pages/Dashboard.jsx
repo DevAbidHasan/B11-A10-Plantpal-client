@@ -12,8 +12,8 @@ const Dashboard = () => {
                     Dashboard || Plantpal
                 </title>
             </Helmet>
-            <h3 className='text-center text-blue-500 lg:text-3xl md:text-2xl text-xl font-bold'>User Dashboard</h3>
-            <div className=' bg-gray-100 py-8 md:py-15 rounded-sm'>
+            <h3 className='text-center poppins text-blue-500 lg:text-3xl md:text-2xl text-xl font-bold'>User Dashboard</h3>
+            <div className=' bg-gray-100 py-8 inter md:py-15 rounded-sm'>
                 <img className='mx-auto border p-1 rounded-full mb-5 w-[200px]' src={user?.photoURL} alt="" />
                 <p className='text-center'>Email : <span className='text-blue-700'>{user?.email}</span></p>
                 <p className='text-center'>Username : <span className='text-blue-700'>{user?.displayName}</span></p>
